@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import DeleteIcon from "@mui/icons-material/Delete";
+// import DeleteIcon from "@mui/icons-material/Delete";
 import s from "./Registration.module.css";
 
 // import { Button } from "@material-ui/core/Button";
