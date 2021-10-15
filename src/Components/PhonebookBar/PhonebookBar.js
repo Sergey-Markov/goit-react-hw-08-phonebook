@@ -1,21 +1,13 @@
 import s from "../PhonebookBar/PhonebookBar.module.css";
-import Contacts from "../Contacts/Contacts";
-import Filter from "../Filter/Filter";
-import Form from "../Form/Form";
-import { Registration } from "../../login/Registration";
-import Homepage from "../Homepage/Homepage";
+import UserMenu from "../UserMenu/userMenu";
+import Navigation from "../Navigation/Navigation";
 
 function PhonebookBar() {
   return (
-    // <Registration />
-    <Homepage />
-    // <div className={s.PhonebookBar}>
-    //   <h1 className={s.title}>Phonebook</h1>
-    //   <Form />
-    //   <h2 className={s.title}>Contacts:</h2>
-    //   <Filter />
-    //   <Contacts />
-    // </div>
+    <div className={s.phonebookBar}>
+      <Navigation />
+      <UserMenu />
+    </div>
   );
 }
 

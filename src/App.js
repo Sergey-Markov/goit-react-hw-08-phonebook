@@ -5,6 +5,7 @@ import Homepage from "./Components/Homepage/Homepage";
 // import { Homepage } from "./Components/Homepage/Homepage";
 import { Login } from "./login/Login";
 import { Registration } from "./login/Registration";
+import PhonebookBar from "././Components/PhonebookBar/PhonebookBar";
 // import Navigation from "./Components/Navigation/Navigation";
 // import PhonebookBar from "./Components/PhonebookBar/PhonebookBar";
 
@@ -26,9 +27,7 @@ const NotFoundView = lazy(() =>
 function App() {
   return (
     <div>
-      {/* <Navigation />
-      <hr /> */}
-      <h3>Our PhonebookBook navigation</h3>
+      <PhonebookBar />
 
       <Suspense fallback={<h1>LOADING...</h1>}>
         <Switch>
@@ -41,9 +40,6 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          {/* <Route path="/movies/">
-            <MoviesPage />
-          </Route> */}
 
           <Route>
             <NotFoundView />

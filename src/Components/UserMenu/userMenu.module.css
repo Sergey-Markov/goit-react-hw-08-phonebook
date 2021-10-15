@@ -1,0 +1,17 @@
+.list {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+  }
+ 
+
+.button {
+    border-radius: 4px;
+    background-color: rgb(17, 156, 221);
+    margin-left: 10px;
+    font-size: inherit;
+  }
+  .button:focus,
+  .button:hover {
+    background-color: rgb(75, 221, 17);
+  }

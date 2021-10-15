@@ -1,0 +1,9 @@
+.registrationField{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title{
+    color:rgb(17, 156, 221);
+}

@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
+import s from "./Registration.module.css";
 
 // import { Button } from "@material-ui/core/Button";
 
@@ -51,8 +52,8 @@ const Registration = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Registration form</h1>
+    <div className={s.registrationField}>
+      <h1 className={s.title}>Registration form</h1>
       <Formik
         initialValues={initialValues}
         validate={validate}
@@ -104,15 +105,15 @@ const Registration = () => {
             >
               Submit
             </Button>
-            <Button variant="outlined" startIcon={<DeleteIcon />}>
+            {/* <Button variant="outlined" startIcon={<DeleteIcon />}>
               Delete
-            </Button>
+            </Button> */}
           </Form>
         )}
       </Formik>
       <p>
         If yuo have an acaunt, please enter
-        <Link to="/login"> Login</Link>
+        <Link to="/"> Login</Link>
       </p>
     </div>
   );

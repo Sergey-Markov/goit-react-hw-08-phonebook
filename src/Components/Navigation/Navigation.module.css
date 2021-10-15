@@ -1,0 +1,32 @@
+.list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .item {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    color: rgb(17, 156, 221);
+  
+    transition-property: all;
+    transition-duration: 100ms;
+  }
+  
+  .item:focus,
+  .item:hover {
+    box-shadow: none;
+    color: rgb(75, 221, 17);
+    background-color: #fff;
+    transform: scale(1.5);
+  }
+  
+  .item:not(:last-child) {
+    margin-right: 15px;
+  }
+  

@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import s from "./Login.module.css";
 
 const initialValues = {
   email: "",
@@ -35,8 +36,8 @@ const Login = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Login form</h1>
+    <div className={s.loginField}>
+      <h1 className={s.title}>Login form</h1>
       <Formik
         initialValues={initialValues}
         validate={validate}
