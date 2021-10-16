@@ -28,7 +28,7 @@
     "styled-components": "^5.3.1",
     "web-vitals": "^1.1.2"
   },
-  "homepage": "https://Sergey-Markov.github.io/goit-react-hw-07-phonebook",
+  "homepage": "https://Sergey-Markov.github.io/goit-react-hw-08-phonebook",
   "scripts": {
     "server": "json-server --port 7777 --watch db.json",
     "predeploy": "npm run build",
