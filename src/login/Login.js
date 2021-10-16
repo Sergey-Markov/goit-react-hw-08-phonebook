@@ -16,8 +16,6 @@ const initialValues = {
 
 const Login = () => {
   const dispatch = useDispatch();
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const togglePassword = useCallback(() => {
     setShowPassword((prev) => !prev);

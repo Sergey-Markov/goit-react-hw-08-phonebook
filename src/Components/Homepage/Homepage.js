@@ -1,6 +1,6 @@
 // import { useCallback } from "react";
 import { useSelector } from "react-redux";
-import { Login } from "../../login/Login";
+// import { Login } from "../../login/Login";
 import { authSelectors } from "../../redux/auth";
 import LoggedInInterface from "../LoggedInInterface/LoggedInIntrface";
 
@@ -8,5 +8,5 @@ import LoggedInInterface from "../LoggedInInterface/LoggedInIntrface";
 
 export default function Homepage() {
   const isLoggedIn = useSelector(authSelectors.default.getIsLoggedIn);
-  return <div>{isLoggedIn ? <LoggedInInterface /> : <Login />}</div>;
+  return <div>{isLoggedIn && <LoggedInInterface />}</div>;
 }

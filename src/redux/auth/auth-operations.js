@@ -42,7 +42,7 @@ const logOut = createAsyncThunk("auth/logout", async () => {
     await axios.post("/users/logout");
     token.unset();
   } catch (error) {
-    // TODO: Добавить обработку ошибки error.message
+    console.log(error);
   }
 });
 
@@ -56,12 +56,12 @@ const fetchCurrentUser = createAsyncThunk(
       return thunkAPI.RejectWithValue();
     }
 
-    // token.set(persistedToken);
+    token.set(persistedToken);
     try {
       const { data } = await axios.get("/users/current");
       return data;
     } catch (error) {
-      // TODO: Добавить обработку ошибки error.message
+      console.log(error);
     }
   }
 );

@@ -117,7 +117,7 @@ const Registration = () => {
       </Formik>
       <p>
         If yuo have an acaunt, please enter
-        <Link to="/"> Login</Link>
+        <Link to="/login"> Login</Link>
       </p>
     </div>
   );
