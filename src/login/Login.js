@@ -81,17 +81,9 @@ const Login = () => {
                 error={touched.password && Boolean(errors.password)}
                 helperText={touched.password && errors.password}
               />
-              <Button
-                color="primary"
-                type="button"
-                onClick={togglePassword}
-                // startIcon={<VisibilityOff />}
-              >
+              <Button color="primary" type="button" onClick={togglePassword}>
                 {showPassword ? <Visibility /> : <VisibilityOff />}
               </Button>
-              {/* <button type="button" onClick={togglePassword}>
-                {showPassword ? "Hide password" : "Show password"}
-              </button> */}
               <br />
               <br />
               <Button

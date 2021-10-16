@@ -13,16 +13,19 @@ const token = {
   },
 };
 
-const register = createAsyncThunk("auth/register", async (credentials) => {
-  try {
-    const { data } = await axios.post("/users/signup", credentials);
-    token.set(data.token);
-    <Redirect to="/" />;
-    return data;
-  } catch (error) {
-    console.log(error);
+const register = createAsyncThunk(
+  "auth/register",
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post("/users/signup", credentials);
+      token.set(data.token);
+      <Redirect to="/" />;
+      return data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
   }
-});
+);
 
 const logIn = createAsyncThunk(
   "auth/login",
