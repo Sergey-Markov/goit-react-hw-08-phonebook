@@ -6,6 +6,8 @@ import TextField from "@material-ui/core/TextField";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import s from "./Login.module.css";
+import { useDispatch } from "react-redux";
+import authOperations from "../redux/auth/auth-operations";
 
 const initialValues = {
   email: "",
@@ -13,6 +15,9 @@ const initialValues = {
 };
 
 const Login = () => {
+  const dispatch = useDispatch();
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const togglePassword = useCallback(() => {
     setShowPassword((prev) => !prev);
@@ -28,12 +33,13 @@ const Login = () => {
     return errors;
   }, []);
 
-  const onSubmit = useCallback((values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-    }, 400);
-  }, []);
+  const onSubmit = useCallback(
+    (values, { setSubmiting }) => {
+      dispatch(authOperations.logIn(values));
+      setSubmiting(false);
+    },
+    [dispatch]
+  );
 
   return (
     <div className={s.loginField}>

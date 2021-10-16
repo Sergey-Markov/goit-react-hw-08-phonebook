@@ -1,18 +1,12 @@
 // import { useCallback } from "react";
+import { useSelector } from "react-redux";
 import { Login } from "../../login/Login";
-// import Contacts from "../Contacts/Contacts";
-// import Filter from "../Filter/Filter";
-// import Form from "../Form/Form";
-import s from "../Homepage/Homepage.module.css";
+import { authSelectors } from "../../redux/auth";
+import LoggedInInterface from "../LoggedInInterface/LoggedInIntrface";
+
+// import s from "../Homepage/Homepage.module.css";
 
 export default function Homepage() {
-  // const logout = useCallback(() => {
-  //   console.log(`Logout clicked`);
-  // }, []);
-  return (
-    <div className={s.list}>
-      <h2 className={s.title}>Enter your login and password</h2>
-      <Login />
-    </div>
-  );
+  const isLoggedIn = useSelector(authSelectors.default.getIsLoggedIn);
+  return <div>{isLoggedIn ? <LoggedInInterface /> : <Login />}</div>;
 }

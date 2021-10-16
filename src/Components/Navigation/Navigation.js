@@ -7,7 +7,7 @@ export default function Navigation() {
       <NavLink to="/registration" className={s.item}>
         Registration
       </NavLink>
-      <NavLink to="/Login" className={s.item}>
+      <NavLink to="/" className={s.item}>
         Login
       </NavLink>
     </ul>

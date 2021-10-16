@@ -1,10 +1,10 @@
 import shortid from "shortid";
 import PropTypes from "prop-types";
-import s from "../Filter/Filter.module.css";
+import s from "../FilterContacts/Filter.module.css";
 import { connect } from "react-redux";
 import { phonebookActions, phonebookSelectors } from "../../redux";
 
-function Filter({ filter, onChange }) {
+function FilterContacts({ filter, onChange }) {
   const filterId = shortid.generate();
   return (
     <label htmlFor={filterId} className={s.label}>
@@ -24,7 +24,7 @@ function Filter({ filter, onChange }) {
   );
 }
 
-Filter.propTypes = {
+FilterContacts.propTypes = {
   filter: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
@@ -35,4 +35,4 @@ const mapDispatchToProps = (dispatch) => ({
   onChange: (e) => dispatch(phonebookActions.onChangeFilter(e.target.value)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+export default connect(mapStateToProps, mapDispatchToProps)(FilterContacts);

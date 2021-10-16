@@ -3,7 +3,10 @@
     justify-content: center;
     padding: 15px;
   }
- 
+ .avatar{
+   margin-right: 4px;
+   border-radius: 10px;
+ }
 
 .button {
     border-radius: 4px;

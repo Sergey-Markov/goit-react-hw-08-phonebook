@@ -1,11 +1,23 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { Redirect } from "react-router";
 
 axios.defaults.baseURL = "https://connections-api.herokuapp.com";
+
+const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = "";
+  },
+};
 
 const register = createAsyncThunk("auth/register", async (credentials) => {
   try {
     const { data } = await axios.post("/users/signup", credentials);
+    token.set(data.token);
+    <Redirect to="/" />;
     return data;
   } catch (error) {
     console.log(error);
@@ -17,7 +29,7 @@ const logIn = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post("/users/login", credentials);
-      //   token.set(data.token);
+      token.set(data.token);
       return data;
     } catch (error) {
       return rejectWithValue(error);
@@ -28,7 +40,7 @@ const logIn = createAsyncThunk(
 const logOut = createAsyncThunk("auth/logout", async () => {
   try {
     await axios.post("/users/logout");
-    // token.unset();
+    token.unset();
   } catch (error) {
     // TODO: Добавить обработку ошибки error.message
   }
@@ -54,11 +66,11 @@ const fetchCurrentUser = createAsyncThunk(
   }
 );
 
-const operations = {
+const authOperations = {
   register,
   logOut,
   logIn,
   fetchCurrentUser,
 };
 
-export default operations;
+export default authOperations;

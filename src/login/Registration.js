@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 // import DeleteIcon from "@mui/icons-material/Delete";
 import s from "./Registration.module.css";
+import { useDispatch } from "react-redux";
+import authOperations from "../redux/auth/auth-operations";
 
 // import { Button } from "@material-ui/core/Button";
 
@@ -11,10 +13,11 @@ const initialValues = {
   name: "",
   email: "",
   password: "",
-  repeatPassword: "",
+  passwordRepeat: "",
 };
 
 const Registration = () => {
+  const dispatch = useDispatch();
   const validate = useCallback((values) => {
     const errors = {};
     if (!values.name) {
@@ -44,12 +47,13 @@ const Registration = () => {
     return errors;
   }, []);
 
-  const onSubmit = useCallback((values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
+  const handleSubmit = useCallback(
+    (values, { setSubmitting }) => {
+      dispatch(authOperations.register(values));
       setSubmitting(false);
-    }, 400);
-  }, []);
+    },
+    [dispatch]
+  );
 
   return (
     <div className={s.registrationField}>
@@ -57,7 +61,7 @@ const Registration = () => {
       <Formik
         initialValues={initialValues}
         validate={validate}
-        onSubmit={onSubmit}
+        onSubmit={handleSubmit}
       >
         {({ isSubmitting, touched, errors }) => (
           <Form>
